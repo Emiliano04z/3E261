@@ -1,0 +1,85 @@
+@startuml
+class Bomberman
+class Jugador
+class Bomba
+
+class Puntaje
+class Tiempo
+class Vida
+
+class Partida
+class Nivel
+class NivelBonus
+
+class Mapa
+class BloqueSolido
+class BloqueLadrillo
+
+class Puerta
+class EnemigoBasico
+class EnemigoAzul
+
+class EnemigoFantasma
+class EnemigoRojo
+class EnemigoCirculo
+
+class EnemigoMoneda
+class PoderFuego
+class PoderBomba
+
+class PoderTraspasar
+class PoderVelocidad
+class Codigo
+
+class PoderControl
+class PoderInvencible
+class MapaBonus
+
+class BloqueLadrilloEspecial
+class PoderDetTiempo
+
+Jugador --|> Bomberman
+
+Bomberman *-- Vida
+Bomberman *-- Puntaje
+Bomberman *-- Tiempo
+Partida "1" *-- "20" Nivel
+Partida "1" *-- "5" NivelBonus
+Nivel *-- Mapa
+NivelBonus *-- MapaBonus
+Mapa *-- BloqueLadrillo
+Mapa *-- BloqueSolido
+Mapa *-- Puerta
+Puerta "1" *-- "*" EnemigoMoneda
+
+NivelBonus *-- BloqueSolido
+NivelBonus *-- EnemigoBasico
+
+Nivel *-- EnemigoBasico
+Nivel *-- EnemigoAzul
+Nivel *-- EnemigoCirculo
+Nivel *-- EnemigoFantasma
+Nivel *-- EnemigoRojo
+
+BloqueLadrilloEspecial "1" *-- "1" PoderBomba
+BloqueLadrilloEspecial "1" *-- "1" PoderControl
+BloqueLadrilloEspecial "1" *-- "1" PoderFuego
+BloqueLadrilloEspecial "1" *-- "1" PoderInvencible
+BloqueLadrilloEspecial "1" *-- "1" PoderTraspasar
+BloqueLadrilloEspecial "1" *-- "1" PoderVelocidad
+BloqueLadrilloEspecial "1" *-- "1" PoderDetTiempo
+
+Bomberman "1" o-- PoderBomba
+Bomberman "1" o-- PoderControl
+Bomberman "1" o-- PoderDetTiempo
+Bomberman "1" o-- PoderFuego
+Bomberman "1" o-- PoderInvencible
+Bomberman "1" o-- PoderTraspasar
+Bomberman "1" o-- PoderVelocidad
+
+Bomberman o-- Bomba
+Jugador o-- Partida
+Bomberman o-- Codigo
+Bomberman o-- Puerta
+
+@enduml
